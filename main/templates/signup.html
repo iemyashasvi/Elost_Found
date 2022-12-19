@@ -5,20 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href={{ url_for('static', filename='login.css') }}>
-    <title>Login</title>
+    <title>Sign Up</title>
   </head>
   <body>
     <div>
       <img src={{ url_for('static', filename='logo.png') }} alt="Avatar"
       class="logo" />
       <h1>e-Lost and Found</h1>
-      <form action="/login" method="post">
+      <form action="/signup" method="post">
         <label for="username"><b>Bennett ID</b></label>
         <input
           type="text"
           placeholder="Enter ID"
           name="username"
           id="username"
+          required
+        />
+        <label for="phone"><b>Phone No</b></label>
+        <input
+          type="text"
+          placeholder="Phone No"
+          name="phone"
+          id="phone"
+          required
+        />
+        <label for="name"><b>Name</b></label>
+        <input
+          type="text"
+          placeholder="Name"
+          name="name"
+          id="name"
           required
         />
         <label for="password"><b>Password</b></label>
@@ -29,10 +45,10 @@
           id="password"
           required
         />
-          <button type="submit">Login</button>
-          <button type="submit" onclick="window.location.href = '/signup'">
-            Sign Up
-          </button>
+        <button onclick="window.location.href = '/login'">Login</button>
+        <button type="submit" onclick="window.location.href = '/signup'">
+          Sign Up
+        </button>
         {% if error != None %}
         <p class="error">{{ error }}</p>
         {% endif %}

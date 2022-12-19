@@ -1,43 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
-</head>
-<style>.alert {
-    padding: 20px;
-    background-color: #f44336;
-    color: white;
-  }
-  
-  .closebtn {
-    margin-left: 15px;
-    color: white;
-    font-weight: bold;
-    float: right;
-    font-size: 22px;
-    line-height: 20px;
-    cursor: pointer;
-    transition: 0.3s;
-  }
-  
-  .closebtn:hover {
-    color: black;
-  }
-</style>
-<body>
-    <h1>LOGIN PAGE</h1>
-    <form method="POST">
-        <label for="username">Username:</label>
-        <input type="text" name="username" required>
-        <br>
-        <label for="password">Password:</label>
-        <input type="password" name="password" required>
-        <br>
-        <input type="submit" value="Submit">
-    </form>
-      
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for('static', filename='login.css') }}>
+    <title>Login</title>
+  </head>
+  <body>
+    <div>
+      <img src={{ url_for('static', filename='logo.png') }} alt="Avatar"
+      class="logo" />
+      <h1>e-Lost and Found</h1>
+      <form action="/login" method="post">
+        <label for="username"><b>Bennett ID</b></label>
+        <input
+          type="text"
+          placeholder="Enter ID"
+          name="username"
+          id="username"
+          required
+        />
+        <label for="password"><b>Password</b></label>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          name="password"
+          id="password"
+          required
+        />
+          <button type="submit">Login</button>
+          <button onclick="window.location.href = '/signup'">
+            Sign Up
+          </button>
+        {% if error != None %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+      </form>
+    </div>
+  </body>
 </html>

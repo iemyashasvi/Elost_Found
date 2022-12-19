@@ -1,4 +1,4 @@
-
+from main import db
 class Items (db.Model):
     ID=db.Column(db.String(length=15),primary_key=True)
     name=db.Column(db.String(length=20),nullable=False)
