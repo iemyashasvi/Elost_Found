@@ -2,7 +2,13 @@ from main import app
 from flask import render_template,request,redirect,url_for,session
 import sqlite3
 from flask_session import Session
+
 @app.route("/")
+@app.route("/home")
+def home():
+    if not session.get('username'):
+        return redirect('/login')
+    return render_template('home.html', name = session.get('username'))
 @app.route("/login",methods=['GET','POST'])
 #-----------------------------------user ------------------------------------------
 def login():
@@ -47,8 +53,8 @@ def signup():
             session["phone"] = request.form["phone"]
             db=sqlite3.connect("USERS.db")
             curr=db.cursor()
-            #query="insert into users(id,name,password,mobile) values "
-            curr.execute(f'insert into users(id,name,password,mobile) values({session["username"]},{session["name"]},{session["password"]},{session["phone"]})')
+            # query="insert into users(id,name,password,mobile) values "
+            curr.execute(f'insert into users(id,name,password,mobile) values("{session["username"]}","{session["name"]}","{session["password"]}","{session["phone"]}")')
             db.commit()
             return redirect(url_for("home"))
     return render_template("signup.html", error=error)
@@ -62,6 +68,10 @@ def logout():
 
 @app.route("/table")
 def table():
+    db=sqlite3.connect("USERS.db")
+    curr=db.cursor()
+    curr.execute('select * from users')
+    result=curr.fetchall()
     return render_template("table.html", items=result)
 
 if __name__ == '__main__':
