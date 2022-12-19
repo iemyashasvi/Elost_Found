@@ -19,11 +19,11 @@ def login():
         else:
             # Login successful, redirect to the dashboard
             return redirect(url_for('dashboard'))
-    return render_template('login.html', error=error)
+    return render_template('login1.html', error=error)
 
 @app.route('/dashboard')
 def dashboard():
     return 'Welcome to the dashboard!'
 
 if __name__ == '__main__':
-    app.run()
+   app.run()

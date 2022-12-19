@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href={{ url_for('static', filename='login.css') }}>
+    <title>Login</title>
+  </head>
+  <body>
+    <center>
+      <form action="/login" method="post">
+        <div class="img">
+          <img src={{ url_for('static', filename='logo.png') }} alt="Avatar"
+          class="logo" />
+        </div>
+        <h1>
+          <u
+            ><b style="font-family: 'Times New Roman', Times, serif"
+              >E-lost and found</b
+            ></u
+          >
+        </h1>
+        <div class="form">
+          <label for="username" style="margin-right: 120px"
+            ><b>Bennett ID</b></label
+          >
+          <br />
+          <input
+            type="text"
+            placeholder="Enter ID"
+            name="username"
+            id="username"
+            required
+          />
+          <br />
+          <label for="psw" style="margin-right: 120px"><b>Password</b></label>
+          <br />
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            id="password"
+            required
+          />
+          <br />
+          <label style="margin-right: 110px">
+            <br />
+            <input
+              type="checkbox"
+              checked="checked"
+              style="margin-left: 90px"
+            />
+            Remember me
+          </label>
+          <br />
+          <button type="submit">Login</button>
+          {% if error != None %}
+          <p style="color: red">{{ error }}</p>
+          {% endif %}
+          <br />
+        </div>
+      </form>
+    </center>
+  </body>
+</html>
