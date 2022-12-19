@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href={{ url_for('static', filename='ben10.png') }}
+    type="image/x-icon">
+    <title>Report</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background: #db1f32;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        font-size: 20px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      .sidebar a {
+        display: block;
+        color: rgb(255, 255, 255);
+        padding: 16px;
+        text-decoration: none;
+      }
+
+      .sidebar a.active {
+        background: #860202;
+        color: white;
+      }
+
+      .sidebar a:hover:not(.active) {
+        background: rgb(253, 253, 253);
+        color: rgb(0, 0, 0);
+      }
+
+      div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+      }
+
+      @media screen and (max-width: 700px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        .sidebar a {
+          float: left;
+        }
+        div.content {
+          margin-left: 0;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .sidebar a {
+          text-align: center;
+          float: none;
+        }
+      }
+
+      .ok {
+        border: 2px solid rgb(255, 255, 255);
+        width: fit-content;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: rgb(201, 3, 3);
+        font-weight: bolder;
+        color: rgb(255, 255, 255);
+        size: 200%;
+        border-radius: 0.75rem;
+        padding: 1rem;
+        margin: auto;
+      }
+      p {
+        color: rgb(255, 255, 255);
+        text-shadow: 5px;
+        border: 2px solid rgb(255, 255, 255);
+        border-radius: 5%;
+        background: rgb(201, 3, 3);
+        width: 250px;
+        box-sizing: border-box;
+        margin: auto;
+      }
+      .ok input {
+        width: 200px;
+        height: 35px;
+        border-radius: 0.5rem;
+        border-style: hidden;
+      }
+      .ok label {
+        font-size: 120%;
+      }
+      textarea {
+        width: 200px;
+        min-height: 10px;
+        max-height: auto;
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar" style="position: fixed">
+      <img src={{ url_for('static', filename='ben10logo.png') }} alt="logo"
+      width="99%" style="background: rgb(255, 255, 255)" />
+      <a href="/">Home</a>
+      <a href="/items">Items</a>
+      <a href="/report" class="active">Report</a>
+      <a href="/contact">Contact</a>
+      <a href="/login">Log Out</a>
+    </div>
+    <br />
+    <center>
+      <p
+        style="
+          font-size: x-large;
+          font-weight: bolder;
+          font-family: 'Times New Roman', Times, serif;
+          font-size: 70px;
+        "
+      >
+        <u>Report</u>
+      </p>
+    </center>
+    <form action="/report" method="post" style="margin-left: 250px">
+      <div class="ok">
+        <table style="border-spacing: 12px 10px">
+          <tr>
+            <th><label for="">Name</label></th>
+            <td>
+              <input type="text" name="name" id="name" placeholder="Name" />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="">Enrollment No.</label></th>
+            <td>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Enrollment No."
+              />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="">Item Name</label></th>
+            <td>
+              <input
+                type="text"
+                name="iName"
+                id="iName"
+                placeholder="Item Name"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th><label>Items Descripton</label></th>
+            <td>
+              <textarea
+                name="desc"
+                id="desc"
+                cols="2"
+                rows="2"
+                placeholder="Description"
+              ></textarea>
+            </td>
+          </tr>
+          <tr>
+            <th><label for="">Location</label></th>
+            <td>
+              <input
+                type="text"
+                name="location"
+                id="location"
+                placeholder="Location"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="">Contact No.</label></th>
+            <td>
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                placeholder="mobile number"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="">Room No.</label></th>
+            <td>
+              <input type="text" name="room" id="room" placeholder="Room No." />
+            </td>
+          </tr>
+          <tr>
+            <th><label for="">Date and Time</label></th>
+            <td><input type="datetime-local" name="date" id="date" /></td>
+          </tr>
+          <tr>
+            <th><label for="">Status</label></th>
+            <td>
+              <select
+                aria-placeholder="Select"
+                name="status"
+                id="status"
+                style="width: 205px; height: 40px; border-radius: 0.5rem"
+              >
+                <option value="lost">Lost</option>
+                <option value="found">Found</option>
+              </select>
+            </td>
+          </tr>
+        </table>
+        <input type="submit" value="Submit" style="margin-left: 85px" />
+        {% if msg != None %}
+        <p class="alert">{{ msg }}</p>
+        {% endif %}
+      </div>
+    </form>
+  </body>
+</html>

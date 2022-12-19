@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href={{ url_for('static', filename='ben10.png') }}
+    type="image/x-icon">
+    <title>Dashboard</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background: #db1f32;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        font-size: 20px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      .sidebar a {
+        display: block;
+        color: rgb(255, 255, 255);
+        padding: 16px;
+        text-decoration: none;
+      }
+
+      .sidebar a.active {
+        background: #860202;
+        color: white;
+      }
+
+      .sidebar a:hover:not(.active) {
+        background: rgb(253, 253, 253);
+        color: rgb(0, 0, 0);
+      }
+
+      div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+      }
+
+      @media screen and (max-width: 700px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+          position: relative;
+        }
+        .sidebar a {
+          float: left;
+        }
+        div.content {
+          margin-left: 0;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .sidebar a {
+          text-align: center;
+          float: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar" style="position: fixed">
+      <img src={{ url_for('static', filename='ben10logo.png') }} alt="logo"
+      width="99%" style="background: rgb(255, 255, 255);">
+      <a href="/" class="active">Home</a>
+      <a href="/items">Items</a>
+      <a href="/report">Report</a>
+      <a href="/contact">Contact</a>
+      <a href="/login">Log Out</a>
+    </div>
+    <br />
+    <div class="user">
+      <img src={{ url_for('static', filename='user.png.jpg') }} alt="user"
+      width="20%" style=" margin-left: 8cm; border: 10px rgb(227, 0, 0) solid;
+      border-radius: 110%; ; " />
+    </div>
+    <!-- <h1>{{ name }} logged in</h1> -->
+    <!-- <a href="/logout">Log Out</a> -->
+  </body>
+</html>

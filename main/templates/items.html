@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href={{ url_for('static', filename='ben10.png') }}
+    type="image/x-icon">
+    <title>Items</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "Lato", sans-serif;
+      }
+
+      .sidebar {
+        margin: 0;
+        padding: 0;
+        width: 200px;
+        background: #db1f32;
+        position: fixed;
+        height: 100%;
+        overflow: auto;
+        font-size: 20px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+      }
+
+      .sidebar a {
+        display: block;
+        color: rgb(255, 255, 255);
+        padding: 16px;
+        text-decoration: none;
+      }
+
+      .sidebar a.active {
+        background: #860202;
+        color: white;
+      }
+
+      .sidebar a:hover:not(.active) {
+        background: rgb(253, 253, 253);
+        color: rgb(0, 0, 0);
+      }
+
+      div.content {
+        margin-left: 200px;
+        padding: 1px 16px;
+        height: 1000px;
+      }
+
+      @media screen and (max-width: 700px) {
+        .sidebar {
+          width: 100%;
+          height: auto;
+        }
+        .sidebar a {
+          float: left;
+        }
+        div.content {
+          margin-left: 0;
+        }
+      }
+
+      @media screen and (max-width: 400px) {
+        .sidebar a {
+          text-align: center;
+          float: none;
+        }
+      }
+      .table,
+      th,
+      td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        box-sizing: border-box;
+        padding: 0.5cm;
+      }
+      th,
+      td {
+        text-align: left;
+      }
+      th {
+        background: rgba(169, 0, 0, 0.772);
+        color: aliceblue;
+      }
+      .rr {
+        margin-left: 6cm;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar" style="position: fixed">
+      <img src={{ url_for('static', filename='ben10logo.png') }} alt="logo"
+      width="99%" style="background: rgb(255, 255, 255)" />
+      <a href="/">Home</a>
+      <a href="/items" class="active">Items</a>
+      <a href="/report">Report</a>
+      <a href="/contact">Contact</a>
+      <a href="/login">Log Out</a>
+    </div>
+    <div class="rr">
+      <b style="font-family: 'Times New Roman', Times, serif; font-size: 70px"
+        ><u>Lost Items</u></b
+      >
+      <br />
+      <br />
+      <br />
+      <div class="tt">
+        <table class="table">
+          <tr>
+            <th>Person Name</th>
+            <th>Enrollment No.</th>
+            <th>Item Name</th>
+            <th>Item Description</th>
+            <th>Location</th>
+            <th>Contact No.</th>
+            <th>Room No.</th>
+            <th>Date & Time</th>
+            <th>Status</th>
+          </tr>
+          {% for i in items %}
+          <tr>
+            <td>{{ i[0] }}</td>
+            <td>{{ i[1] }}</td>
+            <td>{{ i[2] }}</td>
+            <td>{{ i[3] }}</td>
+            <td>{{ i[4] }}</td>
+            <td>{{ i[5] }}</td>
+            <td>{{ i[6] }}</td>
+            <td>{{ i[7] }}</td>
+            <td>{{ i[8] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

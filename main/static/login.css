@@ -48,7 +48,7 @@ input[type="password"] {
 
 button,
 .button {
-  background-color: #db1f32;
+  background: #db1f32;
   color: white;
   padding: 0.75rem 2.363rem;
   width: 49%;
