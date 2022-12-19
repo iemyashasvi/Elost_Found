@@ -68,17 +68,19 @@
           float: none;
         }
       }
+      .info {
+        text-align: center;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        font-size: 150%;
+      }
     </style>
   </head>
 
   <body>
     <div class="sidebar" style="position: fixed">
-      <img
-        src={{ url_for('sbackground='ben10logo.png') }}
-        alt="logo"
-        width="99%"
-        style="background-color: rgb(255, 255, 255)"
-      />
+      <img src={{ url_for('static', filename='ben10logo.png') }} alt="logo"
+      width="99%" style="background: rgb(255, 255, 255);">
       <a href="/">Home</a>
       <a href="/items">Items</a>
       <a href="/report">Report</a>
@@ -86,11 +88,16 @@
       <a href="/login">Log Out</a>
     </div>
     <div class="info">
-      <h1>
-        Contact For Help
-      </h1>
-      <br>
-      <a href="mailto:someone@example.com">lostandfound@bennett.edu.in</a>
+      <h1>Contact For Help</h1>
+      <br />
+      <p>
+        Email:
+        <a href="mailto:someone@example.com">lostandfound@bennett.edu.in</a>
+      </p>
+      <br />
+      <p>Contact No.: 6969886969</p>
+      <br />
+      <p>Location: Ground floor, C3 , behind Hotspot,Bennett University</p>
     </div>
   </body>
 </html>
