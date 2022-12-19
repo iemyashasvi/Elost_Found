@@ -46,14 +46,22 @@ input[type="password"] {
   border-radius: 0.5rem;
 }
 
-button {
+button,
+.button {
   background-color: #db1f32;
   color: white;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 2.363rem;
   width: 49%;
   border: none;
   cursor: pointer;
   border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+button a {
+  height: 100%;
+  width: 100%;
 }
 
 .error {

@@ -39,11 +39,9 @@
           id="password"
           required
         />
-        <button><a href="/login">Login</a></button>
-        <button type="submit" onclick="window.location.href = '/signup'">
-          Sign Up
-        </button>
-        {% if error != None %}
+        <a class="button" href="/login">Login</a>
+        <button type="submit">Sign Up</button>
+                {% if error != None %}
         <p class="error">{{ error }}</p>
         {% endif %}
       </form>
