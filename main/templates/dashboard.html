@@ -68,6 +68,11 @@
           float: none;
         }
       }
+      .user {
+        display: flex;
+        flex-direction: column;
+        margin-left: 250px;
+      }
     </style>
   </head>
   <body>
@@ -78,15 +83,16 @@
       <a href="/items">Items</a>
       <a href="/report">Report</a>
       <a href="/contact">Contact</a>
-      <a href="/login">Log Out</a>
+      <a href="/logout">Log Out</a>
     </div>
     <br />
     <div class="user">
       <img src={{ url_for('static', filename='user.png.jpg') }} alt="user"
-      width="20%" style=" margin-left: 8cm; border: 10px rgb(227, 0, 0) solid;
+      width="20%" style="border: 10px rgb(227, 0, 0) solid;
       border-radius: 110%; ; " />
+      <h1>{{ name }} logged in</h1>
+      <h1>Enrollment No. : {{ username }}</h1>
+      <h1>Contact : {{ phone }}</h1>
     </div>
-    <!-- <h1>{{ name }} logged in</h1> -->
-    <!-- <a href="/logout">Log Out</a> -->
   </body>
 </html>

@@ -9,7 +9,14 @@ from flask_session import Session
 def home():
     if not session.get("username"):
         return redirect("/login")
-    return render_template("dashboard.html", name=session.get("username"))
+    db = sqlite3.connect("USERS.db")
+    curr = db.cursor()
+    query = f'select id,name,mobile from USERS where id ="{session.get("username")}"'
+    curr.execute(query)
+    x = curr.fetchone()
+    curr.close()
+    db.close()
+    return render_template("dashboard.html", name=x[1], username=x[0], phone=x[2])
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -94,7 +101,7 @@ def items():
     curr = db.cursor()
     curr.execute("select * from details where status='lost'")
     result = curr.fetchall()
-    return render_template("items.html",items= result)
+    return render_template("items.html", items=result)
 
 
 @app.route("/report", methods=["GET", "POST"])
