@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Report
+        </title>
+        <link rel="shortcut icon" href="css/ben10.png" type="image/x-icon">
+    </head>
+    <style>
+        body {
+          margin: 0;
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidebar {
+          margin: 0;
+          padding: 0;
+          width: 200px;
+          background-color: #aa0404;
+          position: fixed;
+          height: 100%;
+          overflow: auto;
+          font-size: 20px;
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .sidebar a {
+          display: block;
+          color: rgb(255, 255, 255);
+          padding: 16px;
+          text-decoration: none;
+        }
+         
+        .sidebar a.active {
+          background-color: #860202;
+          color: white;
+        }
+        
+        .sidebar a:hover:not(.active) {
+          background-color: rgb(253, 253, 253);
+          color: rgb(0, 0, 0);
+        }
+        
+        div.content {
+          margin-left: 200px;
+          padding: 1px 16px;
+          height: 1000px;
+        }
+        
+        @media screen and (max-width: 700px) {
+          .sidebar {
+            width: 100%;
+            height: auto;
+            position: relative;
+          }
+          .sidebar a {float: left;}
+          div.content {margin-left: 0;}
+        }
+        
+        @media screen and (max-width: 400px) {
+          .sidebar a {
+            text-align: center;
+            float: none;
+          }
+        }
+
+        </style>
+        </head>
+        <body>
+        <div class="sidebar" style="position: fixed;">
+          <img src="css/ben10logo.png" alt="logo" width="99%" style="background-color: rgb(255, 255, 255);">
+          <a href="dashboard.html">Home</a>
+          <a  href="items.html">Items</a>
+          <a class="active" href="Report.html">Report</a>
+          <a href="contact.html">Contact</a>
+          <a href="login.html">Log Out</a>
+        </div>
+        <br>
+       <p style="margin-left: 260px;
+       font-size: x-large;
+       font-weight: bolder;
+       font-family: 'Times New Roman', Times, serif;
+       font-size: 70px;"><u>Report</u></p>
+            <form action="#" method="post" style="margin-left: 250px; ">
+                <label for="item">Item Description :</label>
+                <input type="text" name="item" id="item"
+                placeholder="Description" style="margin-left: 5px;">
+                <br>
+                <label for="loc">Location :</label>
+                <input type="text" name="loc" id="loc"
+                placeholder="Location" style="margin-left: 61px;">
+                <br>
+                <label for="enrollment">Enrollment No. :</label>
+                <input type="text" name="enrollment" id="enrollment"
+                placeholder="Enrollment No." style="margin-left: 16px;">
+                <br>
+                <label for="contact">Contact No. :</label>
+                <input type="text" name="contact" id="contact"
+                placeholder="Contact Number" style="margin-left: 37px;">
+                <br>
+                <label for="hostel">Hostel:Room No. :</label>
+                <input type="text" name="hostel" id="hostel"
+                placeholder="Room No." style="margin-right: 3px;">
+                <br>
+                <label for="date">Date and Time :</label>
+                <input type="datetime-local" name="date" id="date"
+                 style="margin-left: 17px;">
+                <br>
+            </form>
+        </body>
+    </html>

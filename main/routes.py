@@ -60,9 +60,9 @@ def logout():
     return redirect("/")
 
 
-@app.route('/dashboard')
-def dashboard():
-    return 'Welcome to the dashboard!'
+@app.route("/table")
+def table():
+    return render_template("table.html", items=result)
 
 if __name__ == '__main__':
    app.run()

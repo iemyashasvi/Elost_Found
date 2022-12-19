@@ -29,10 +29,8 @@
           id="password"
           required
         />
-          <button type="submit">Login</button>
-          <button onclick="window.location.href = '/signup'">
-            Sign Up
-          </button>
+        <button type="submit">Login</button>
+        <button><a href="/signup"> Sign Up </a></button>
         {% if error != None %}
         <p class="error">{{ error }}</p>
         {% endif %}
