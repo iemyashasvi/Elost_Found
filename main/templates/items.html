@@ -93,14 +93,15 @@
       <img src={{ url_for('static', filename='ben10logo.png') }} alt="logo"
       width="99%" style="background: rgb(255, 255, 255)" />
       <a href="/">Home</a>
-      <a href="/items" class="active">Items</a>
+      <a href="/lost" class="active">Lost Items</a>
+      <a href="/found">Found Items</a>
       <a href="/report">Report</a>
       <a href="/contact">Contact</a>
       <a href="/login">Log Out</a>
     </div>
     <div class="rr">
       <b style="font-family: 'Times New Roman', Times, serif; font-size: 70px"
-        ><u>Lost Items</u></b
+        ><u>{{ type }} Items</u></b
       >
       <br />
       <br />

@@ -95,13 +95,22 @@ def table():
     return render_template("table.html", items=result)
 
 
-@app.route("/items")
-def items():
+@app.route("/lost")
+def lost():
     db = sqlite3.connect("USERS.db")
     curr = db.cursor()
     curr.execute("select * from details where status='lost'")
     result = curr.fetchall()
-    return render_template("items.html", items=result)
+    return render_template("items.html", items=result, type='Lost')
+
+
+@app.route("/found")
+def found():
+    db = sqlite3.connect("USERS.db")
+    curr = db.cursor()
+    curr.execute("select * from details where status='found'")
+    result = curr.fetchall()
+    return render_template("found.html", items=result, type='Found')
 
 
 @app.route("/report", methods=["GET", "POST"])
